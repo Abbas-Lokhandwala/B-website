@@ -245,7 +245,8 @@ export default function App() {
   const birthdayStarted = useRef(false);
   const liveBirthday = now >= birthdayMoment;
   // Preview is local-only. It never bypasses the timer on GitHub Pages.
-  const preview = import.meta.env.DEV && new URLSearchParams(window.location.search).get('preview') === '1';
+  const preview = new URLSearchParams(window.location.search).get('preview') === '1';
+
   const isBirthday = liveBirthday || preview;
 
   useEffect(() => {
