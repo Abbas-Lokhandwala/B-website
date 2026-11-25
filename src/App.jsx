@@ -10,7 +10,12 @@ const STAR_POSITIONS = Array.from({ length: 72 }, (_, i) => ({
   delay: (i % 13) * -0.57,
 }));
 
-const ASSET = (filename) => `${import.meta.env.BASE_URL}${filename.replace(/^\/+/, '')}`;
+
+const ASSET = (path) => {
+  const cleanPath = path.replace(/^\/+/, '').replace(/^public\//, '');
+  return `${import.meta.env.BASE_URL}${cleanPath}`;
+};
+
 
 function HeartIcon({ filled = false, size = 18 }) {
   return (
